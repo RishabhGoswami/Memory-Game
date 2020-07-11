@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random())
     cardchoose = []
     cardchooseid = []
-    already = []                                                           
+    var count=0                                       
     const results = document.querySelector('#result')
     const grid = document.querySelector('.grid')
     points = []
@@ -88,11 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
             var card = document.createElement('img')
             card.setAttribute('src', 'craft.jpg')
             card.setAttribute('data-id', i)
-            card.addEventListener('click', flip)
+            card.addEventListener('dblclick',flip)
             grid.appendChild(card)
         }
     }
     createBoard()
+    
     function flip() {
         var cardid = this.getAttribute('data-id')
         cardchoose.push(cardArray[cardid].name)
@@ -101,8 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardchoose.length == 2) {
             setTimeout(check, 100)
         }
-
     }
-
 })
 
